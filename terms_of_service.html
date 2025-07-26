@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元气血压日记 - 用户协议</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 600;
+            position: relative;
+            padding-left: 15px;
+        }
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        .last-updated {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-style: italic;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            text-align: center;
+        }
+        .highlight {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+        }
+        .warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.1);
+        }
+        .important-notice {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(255, 87, 87, 0.1) 100%);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(220, 53, 69, 0.1);
+        }
+        .legal-section {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(123, 31, 162, 0.1) 100%);
+            border: 1px solid rgba(156, 39, 176, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(156, 39, 176, 0.1);
+        }
+        .contact-info {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(25, 135, 84, 0.1) 100%);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 4px 16px rgba(40, 167, 69, 0.1);
+        }
+        .subscription-info {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border: 1px solid rgba(25, 135, 84, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(25, 135, 84, 0.1);
+        }
+        .company-info {
+            background: linear-gradient(135deg, rgba(13, 202, 240, 0.1) 0%, rgba(13, 110, 253, 0.1) 100%);
+            border: 1px solid rgba(13, 202, 240, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(13, 202, 240, 0.1);
+        }
+        ul, ol {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        .important {
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>元气血压日记用户协议</h1>
+        
+        <div class="last-updated">
+            <strong>最新日期：</strong>2025年7月26日<br>
+            <strong>发布日期：</strong>2025年7月26日
+        </div>
+
+        <div class="company-info">
+            <p><strong>感谢您使用元气血压日记！</strong></p>
+            <p>「元气血压日记」是指开发者邱春伟通过合法拥有并运营的、包括但不限于元气血压日记移动终端软件（以下可能会称为"元气血压日记"）。元气血压日记服务以及该服务所包括的各种业务功能统称为"我们的产品和/或服务"。</p>
+        </div>
+
+        <div class="highlight">
+            <p><strong>重要提示：</strong>《元气血压日记用户协议》（以下简称"本协议"）是用户与我们就下载、安装、复制、使用我们的产品和/或服务订立的契约。请在开始使用我们的产品和/或服务之前，认真阅读并充分理解本服务协议。</p>
+            <p>如同意本协议，或完成全部注册/登录程序，即表示已充分阅读、理解并接受本协议的全部内容，并与我们之间达成一致，成为元气血压日记用户；如果不同意本协议的任意内容，或者无法准确理解本协议条款的解释，请不要对相关条款内容对应的功能进行任何后续操作。</p>
+        </div>
+
+        <h2>1. 仅供个人使用</h2>
+        <p>元气血压日记仅供用户个人用于非商业用途。如果要销售元气血压日记或者与元气血压日记有关或派生的任何资料、服务或软件，则必须得到开发者的允许。如果用户对元气血压日记有任何意见，或有如何改进的建议，可向我们提出。</p>
+
+        <h2>2. 知识产权</h2>
+        <p>用户承认开发者拥有对元气血压日记的所有权利，包括但不限于所有知识产权。"知识产权"指在专利法、版权法、商业机密法、商标法、反不正当竞争法等法中规定的所有权利以及其中的所有应用、更新、扩展和恢复，无论在现在还是以后在全球范围内实施和生效。</p>
+        <p>用户同意不会修改、改编、翻译元气血压日记、创作元气血压日记的派生作品、通过反编译、反向工程、反汇编或其它方式从元气血压日记得到源代码。用户同意不会删除、掩盖或更改开发者或任何第三方的版权声明、商标或其它所有权声明。</p>
+
+        <h2>3. 用户注意事项</h2>
+
+        <h3>3.1 软件使用规范</h3>
+        <p>用户应当对其使用本软件及相关服务的行为负责，除非法律允许或者经开发者事先书面许可，您使用元气血压日记软件及相关服务不得具有下列行为：</p>
+        <ul>
+            <li>使用未经开发者授权或许可的任何插件、外挂、系统或第三方工具对元气血压日记软件及相关服务的正常运行进行干扰、破坏、修改或施加其他影响</li>
+            <li>利用或针对元气血压日记软件及相关服务进行任何危害计算机网络安全的行为</li>
+            <li>对元气血压日记软件及相关服务进行反向工程、反向汇编、编译或者以其他方式尝试发现本软件的源代码</li>
+            <li>恶意注册元气血压日记软件及相关服务的账号，包括但不限于频繁、批量注册账号</li>
+            <li>违反法律法规、本协议、开发者的相关规则及侵犯他人合法权益的其他行为</li>
+        </ul>
+        <p>如果开发者有理由认为您的行为违反或可能违反上述约定的，开发者可独立进行判断并处理，且有权在不事先通知的情况下终止向您提供服务，并追究相关法律责任。</p>
+
+        <h3>3.2 内容行为规范</h3>
+        <div class="legal-section">
+            <p>使用元气血压日记必须遵守国家法律法规，用户承诺绝对不会通过我们的产品和/或服务发送或传播违反国家法律法规及不文明的信息。否则，我们可对用户发布的信息依法或依本协议进行删除或屏蔽，并有权视情节采取警告、限期改正、暂停服务等措施。此类信息包括但不限于：</p>
+            <ul>
+                <li>反对宪法所确定的基本原则的</li>
+                <li>危害国家安全、泄露国家秘密、颠覆国家政权、破坏国家统一、损害国家荣誉和利益的</li>
+                <li>煽动民族仇恨、民族歧视，破坏民族团结的</li>
+                <li>破坏国家宗教政策，宣扬邪教和封建迷信的</li>
+                <li>散布谣言，扰乱社会秩序，破坏社会稳定的</li>
+                <li>散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的</li>
+                <li>恐吓、侮辱、攻击、诽谤他人，侵害他人合法权益的</li>
+                <li>侵害未成年人合法权益或者损害未成年人身心健康的</li>
+                <li>散布商业广告，或类似的商业招揽信息、过度营销信息及垃圾信息</li>
+                <li>含有其他违反法律法规、政策及公序良俗、干扰元气血压日记正常运营或侵犯其他用户或第三方合法权益内容的其他信息</li>
+            </ul>
+        </div>
+
+        <h2>4. 用户隐私制度</h2>
+        <p>尊重用户个人隐私是我们的一项基本政策。开发者一般不会公开、编辑或透露用户的注册资料或保存在服务中的非公开内容，除非我们在诚信的基础上认为透露这些信息在以下几种情况是必要的：</p>
+        <ul>
+            <li>遵守有关法律规定，包括在国家有关机关查询时，提供用户通过元气血压日记发布的信息内容及其发布时间、互联网地址或者域名</li>
+            <li>保持维护「元气血压日记」的商标等知识产权</li>
+            <li>在紧急情况下竭力维护用户个人和社会大众的隐私安全</li>
+            <li>开发者认为必要的其他情况下</li>
+        </ul>
+        <p>要了解元气血压日记数据保护措施的具体信息，请阅读元气血压日记的<a href="privacy_policy.html">隐私权政策</a>。该政策解释了当您使用元气血压日记的相关服务时，元气血压日记会如何处理您的个人信息，以及如何保护您的隐私权。</p>
+
+        <h2>5. 服务变更</h2>
+        <p>开发者保留随时变更、中断或终止服务而不需通知用户的权利。用户接受开发者行使变更、中断或终止服务的权利，开发者不需对用户或第三方负责。</p>
+
+        <h2>6. 责任限制</h2>
+        <p>用户理解并同意自主选择下载和使用「元气血压日记」和所有与「元气血压日记」一同提供或通过「元气血压日记」提供的第三方软件，风险自负，并且对于因下载或使用「元气血压日记」和此类第三方软件而对计算机系统造成的损坏或数据的丢失，用户应承担全部责任。</p>
+        
+        <div class="important-notice">
+            <p><strong>医疗免责声明：</strong></p>
+            <p>元气血压日记仅用于血压数据的记录和管理，不能替代专业医疗建议、诊断或治疗。任何健康相关的决策都应咨询合格的医疗专业人士。</p>
+            <p><strong>如有紧急医疗情况，请立即联系当地急救服务或前往最近的医疗机构。</strong></p>
+        </div>
+
+        <p>在适用法律允许的最大范围内，开发者明确表示不提供任何其他类型的保证，不论是明示的或默示的，包括但不限于适销性、适用性、可靠性、准确性、完整性、无病毒以及无错误的任何默示保证和责任。</p>
+
+        <h2>7. 保障</h2>
+        <p>用户同意保障和维护开发者的利益，负责支付由用户违反本服务条款而引起的律师费用、损害补偿费用、政府机关处罚费用和其它侵权赔偿费用等。</p>
+
+        <h2>8. 第三方产品和服务</h2>
+        <p>本软件可能会使用第三方软件或技术（包括本软件可能使用的开源代码和公共领域代码等），这种使用已经获得合法授权。</p>
+        <p>如因本软件使用的第三方软件或技术引发的任何纠纷，应由该第三方负责解决，我们不承担任何责任。我们不对第三方软件或技术提供客服支持，若您需要获取支持，请与第三方联系。</p>
+
+        <div class="subscription-info">
+            <h2>9. 订阅服务条款</h2>
+            
+            <h3>9.1 订阅类型</h3>
+            <ul>
+                <li><strong>终身会员：</strong>¥99，一次性付费，永久享受所有功能</li>
+                <li><strong>年度会员：</strong>¥36，按年续费，享受所有功能</li>
+                <li><strong>季度会员：</strong>¥18，按季度续费，享受所有功能</li>
+                <li><strong>月度会员：</strong>¥9，按月续费，享受所有功能</li>
+            </ul>
+
+            <h3>9.2 付费与续费</h3>
+            <ul>
+                <li>所有付费通过Apple App Store进行处理</li>
+                <li>年度订阅将自动续费，除非在当前订阅期结束前至少24小时取消</li>
+                <li>续费费用将在当前订阅期结束前24小时内从您的Apple ID账户中扣除</li>
+                <li>您可以在Apple ID设置中管理订阅和关闭自动续费</li>
+            </ul>
+
+            <h3>9.3 退款政策</h3>
+            <ul>
+                <li>退款请求需要通过Apple App Store处理</li>
+                <li>我们遵循Apple的退款政策</li>
+                <li>未使用的订阅时长在取消后不予退款</li>
+                <li>终身会员购买后不支持退款，除非符合Apple的退款条件</li>
+            </ul>
+
+            <h3>9.4 免费试用</h3>
+            <ul>
+                <li>新用户可享有七天免费试用期</li>
+                <li>试用期结束后将自动转为付费订阅</li>
+                <li>您可以在试用期结束前取消以避免产生费用</li>
+            </ul>
+        </div>
+
+        <div class="subscription-info">
+            <h2>10. 会员权益</h2>
+            <p>当您开通元气血压日记会员之后，您将享受对应的会员权益，具体请查阅应用内会员中心权益说明。</p>
+            <p><strong>注意：</strong>由于iOS平台特性，会员权益仅在购买平台生效。由于平台限制，该权益购买后不能跨平台转移。</p>
+
+            <h2>10. 自动续费</h2>
+            <p>连续包月（或包年）会员服务的开通，是基于您已开通元气血压日记会员服务前提下，为您提供的自动会员续费服务。如您开通本服务，则视为您授权开发者有权在您的元气血压日记会员服务即将到期时，从iTunes账户余额中代扣下一个计费周期包月（或包年）费用。</p>
+            
+            <h3>退订方法</h3>
+            <p>若选择连续包月（或包年）服务，您可通过下述方式中止或终止本服务：</p>
+            <p><strong>苹果应用内支付（IAP支付）自动续费用户退订方法：</strong></p>
+            <p>打开苹果手机"设置" → 进入"iTunes Store 与 App Store" → 点击"Apple ID"，选择"查看Apple ID"，进入"账户设置"页面，点击"订阅"，取消"元气血压日记会员服务"订阅即可。</p>
+            
+            <p><strong>退款说明：</strong>因元气血压日记会员服务系在线使用的数字化商品，您支付的费用不具有预付款、存款或定金等性质，而是该数字化商品的价格。除法律法规另有规定或元气血压日记另有说明外，会员服务一经开通后不可退款。</p>
+        </div>
+
+        <h2>11. 法律及协议更新</h2>
+        <p>根据国家法律法规变化及应用运营需要，我们有权对本协议条款不时地进行修改，并根据国家法律法规的要求进行公示，修改后的协议在公示后生效并代替原来的协议。您应不时关注并阅读最新版的协议及应用公告。</p>
+        <p>如您不同意更新后的新协议，您有权立即停止使用我们的产品和/或服务。如您继续使用我们的产品和/或服务，即视为完全同意更新后的协议。</p>
+        <p>如果本协议中任何一条被司法或行政机关判定废止、无效或因任何理由不可执行，该条应视为可分的且并不影响任何其余条款的有效性和可执行性。</p>
+
+        <h2>12. 争议解决</h2>
+        <p>上述条款将受中华人民共和国法律的约束并依据其解释。如出现纠纷，用户和开发者一致同意将纠纷交由当地人民法院管辖。</p>
+
+        <div class="contact-info">
+            <h2>13. 联系我们</h2>
+            <p>如果您对本协议有任何疑问，请通过以下方式联系我们：</p>
+            <ul>
+                <li><strong>开发者：</strong>邱春伟</li>
+                <li><strong>邮箱：</strong>qiuchunwei618@163.com</li>
+                <li><strong>应用名称：</strong>元气血压日记</li>
+                <li><strong>Bundle ID：</strong>com.chunweiqiu.VitalBPDiary</li>
+            </ul>
+        </div>
+
+        <div class="highlight">
+            <p class="important">感谢您选择元气血压日记！我们致力于为您提供优质的血压管理服务，帮助您更好地管理健康。</p>
+        </div>
+    </div>
+</body>
+</html>

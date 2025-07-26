@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元气血压日记 - 医疗参考文献</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 600;
+            position: relative;
+            padding-left: 15px;
+        }
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .intro {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+        }
+        .citation-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .citation-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+        .citation-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .citation-authors {
+            color: #666;
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+        .citation-details {
+            color: #777;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        .citation-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        .citation-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        .usage-section {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.1);
+        }
+        .disclaimer {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(255, 87, 87, 0.1) 100%);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 4px 16px rgba(220, 53, 69, 0.1);
+        }
+        .disclaimer-icon {
+            color: #721c24;
+            margin-right: 8px;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            color: #16a085;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="support.html" class="back-link">← 返回支持页面</a>
+        
+        <h1>元气血压日记 医疗参考文献</h1>
+        
+        <div class="intro">
+            <p><strong>医疗信息来源说明</strong></p>
+            <p>元气血压日记应用中的所有医疗健康信息都基于权威医学指南和临床研究。本页面列出了应用中使用的主要医疗参考文献，确保用户获得准确、可靠的健康信息。</p>
+        </div>
+
+        <h2>📚 主要参考文献</h2>
+
+        <div class="citation-card">
+            <div class="citation-title">中国高血压防治指南(2024年修订版)</div>
+            <div class="citation-authors">中华医学会心血管病学分会, 中国医师协会高血压专业委员会</div>
+            <div class="citation-details">
+                <strong>发布机构:</strong> 中华医学会<br>
+                <strong>发布年份:</strong> 2024年<br>
+                <strong>应用范围:</strong> 血压分级标准、诊断标准、治疗建议
+            </div>
+            <p><strong>摘要:</strong> 中国权威的高血压防治指导文件，为中国高血压患者的诊断、治疗和管理提供循证医学依据。本指南是元气血压日记血压分级判断的主要依据。</p>
+            <a href="http://www.chl-bha.org.cn/Public/ueditor/php/upload/20240815/17236841017752.pdf" class="citation-link" target="_blank">查看原文 PDF</a>
+        </div>
+
+        <div class="citation-card">
+            <div class="citation-title">WHO Guidelines for the Management of Hypertension</div>
+            <div class="citation-authors">World Health Organization</div>
+            <div class="citation-details">
+                <strong>发布机构:</strong> WHO (世界卫生组织)<br>
+                <strong>发布年份:</strong> 2023年<br>
+                <strong>应用范围:</strong> 国际高血压管理标准、生活方式建议
+            </div>
+            <p><strong>摘要:</strong> 世界卫生组织发布的高血压管理指南，提供全球范围内高血压预防、诊断和治疗的标准化建议。</p>
+            <a href="https://www.who.int/publications/i/item/9789240074934" class="citation-link" target="_blank">查看原文</a>
+        </div>
+
+        <div class="citation-card">
+            <div class="citation-title">2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults</div>
+            <div class="citation-authors">American Heart Association, American College of Cardiology</div>
+            <div class="citation-details">
+                <strong>发布机构:</strong> AHA/ACC (美国心脏协会/美国心脏病学会)<br>
+                <strong>发布年份:</strong> 2017年<br>
+                <strong>应用范围:</strong> 高血压预防、检测、评估和管理
+            </div>
+            <p><strong>摘要:</strong> 美国心脏协会和心脏病学会联合发布的成人高血压预防、检测、评估和管理综合指南。</p>
+            <a href="https://www.ahajournals.org/doi/10.1161/HYP.0000000000000065" class="citation-link" target="_blank">查看原文</a>
+        </div>
+
+        <h2>🔬 在应用中的具体应用</h2>
+
+        <div class="usage-section">
+            <h3>血压分级标准</h3>
+            <p>元气血压日记采用中国高血压防治指南(2024年修订版)的血压分级标准：</p>
+            <ul>
+                <li><strong>正常血压:</strong> 收缩压 &lt; 120 mmHg 且舒张压 &lt; 80 mmHg</li>
+                <li><strong>正常高值:</strong> 收缩压 120-139 mmHg或舒张压 80-89 mmHg</li>
+                <li><strong>1级高血压:</strong> 收缩压 140-159 mmHg或舒张压 90-99 mmHg</li>
+                <li><strong>2级高血压:</strong> 收缩压 160-179 mmHg或舒张压 100-109 mmHg</li>
+                <li><strong>3级高血压:</strong> 收缩压 ≥ 180 mmHg或舒张压 ≥ 110 mmHg</li>
+            </ul>
+        </div>
+
+        <div class="usage-section">
+            <h3>健康建议生成</h3>
+            <p>应用中的健康建议基于以下权威来源：</p>
+            <ul>
+                <li>血压达标率评估基于中国高血压防治指南标准</li>
+                <li>生活方式建议参考WHO高血压管理指南</li>
+                <li>心率评估标准基于临床医学常用参考值</li>
+                <li>运动和饮食建议参考国际权威指南</li>
+            </ul>
+        </div>
+
+        <h2>🎯 引用方式</h2>
+
+        <p>在学术或医疗用途中引用元气血压日记的数据标准时，请参考以下格式：</p>
+
+        <div class="citation-card">
+            <p><strong>中文引用格式:</strong></p>
+            <p>中华医学会心血管病学分会, 中国医师协会高血压专业委员会. (2024). 中国高血压防治指南(2024年修订版). 中华医学会.</p>
+            
+            <p><strong>英文引用格式:</strong></p>
+            <p>Chinese Society of Cardiology, Chinese Hypertension League. (2024). Chinese Guidelines for Prevention and Treatment of Hypertension (2024 Revised Edition). Chinese Medical Association.</p>
+        </div>
+
+        <h2>📱 数据来源透明度</h2>
+
+        <p>为确保用户获得可靠的医疗信息，元气血压日记承诺：</p>
+        <ul>
+            <li>所有医疗判断标准都基于权威医学指南</li>
+            <li>定期更新参考文献以反映最新医学进展</li>
+            <li>在应用界面中提供引用信息的便捷访问</li>
+            <li>保持数据来源的完全透明</li>
+        </ul>
+
+        <h2>🔄 更新机制</h2>
+
+        <p>医疗指南和标准会定期更新，元气血压日记将：</p>
+        <ul>
+            <li>持续关注相关医学指南的更新</li>
+            <li>在新指南发布后及时评估和更新应用标准</li>
+            <li>通过应用更新向用户说明任何重要的标准变更</li>
+            <li>维护历史版本的参考文献记录</li>
+        </ul>
+
+        <div class="disclaimer">
+            <p><span class="disclaimer-icon">⚠️</span><strong>重要免责声明</strong></p>
+            <p>虽然元气血压日记基于权威医学指南提供信息，但本应用仅供健康监测和参考使用，不能替代专业医疗诊断、建议或治疗。用户应该：</p>
+            <ul>
+                <li>将应用数据作为与医生讨论的参考资料</li>
+                <li>在做出任何医疗决定前咨询合格的医疗专业人员</li>
+                <li>遵循医生的专业建议而非仅依赖应用建议</li>
+                <li>在血压异常或有健康担忧时及时就医</li>
+            </ul>
+        </div>
+
+        <h2>📞 联系我们</h2>
+
+        <p>如对医疗参考文献有任何疑问，请通过以下方式联系：</p>
+        <ul>
+            <li><strong>邮箱:</strong> qiuchunwei618@163.com</li>
+            <li><strong>应用内反馈:</strong> 设置 > 意见反馈</li>
+        </ul>
+
+        <div class="intro">
+            <p><strong>感谢使用元气血压日记</strong></p>
+            <p>我们致力于为用户提供基于科学证据的可靠健康信息。您的健康是我们最关心的事情。</p>
+        </div>
+
+        <p style="text-align: center; color: #666; margin-top: 40px; font-size: 0.9em;">
+            最后更新: 2025年7月26日 | 元气血压日记 v1.0
+        </p>
+    </div>
+</body>
+</html>
