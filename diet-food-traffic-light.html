@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高血压饮食红绿灯清单：119 种食物完整分类表（红/黄/绿灯）</title>
+    <meta name="description" content="高血压饮食红绿灯完整清单：119 种食物按主食、蔬果、大豆坚果、动物性食品、饮料酒、调料六大类分为红灯（不推荐）、黄灯（严格控制）、绿灯（可适量），划分依据为钠（盐）、脂肪、胆固醇与糖含量，附每日限盐 5 克、食用油 20~30 克等饮食总原则。整理自元气血压日记（iOS）内置食物库。">
+    <meta name="keywords" content="高血压饮食红绿灯, 高血压食物红绿灯, 高血压忌口清单, 红灯食物, 绿灯食物, 低钠饮食, 限盐5克, 高血压吃什么, 高血压饮食禁忌">
+    <link rel="canonical" href="https://mqbit.github.io/VitalBPDiary-Support/diet-food-traffic-light.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="高血压饮食红绿灯清单：119 种食物完整分类表（红/黄/绿灯）">
+    <meta property="og:description" content="119 种食物按六大类分为红灯、黄灯、绿灯，划分依据为钠、脂肪、胆固醇与糖含量，附限盐 5 克等饮食总原则。">
+    <meta property="og:url" content="https://mqbit.github.io/VitalBPDiary-Support/diet-food-traffic-light.html">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.2em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 600;
+            position: relative;
+            padding-left: 15px;
+        }
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        h3 { margin-top: 20px; margin-bottom: 10px; font-size: 1.25em; }
+        p { margin: 10px 0; }
+        .stats {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .stat {
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .stat.red { background: #e74c3c; }
+        .stat.yellow { background: #f39c12; }
+        .stat.green { background: #27ae60; }
+        .filter-bar {
+            text-align: center;
+            margin: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255,255,255,0.95);
+            padding: 10px 0;
+            border-radius: 10px;
+        }
+        .filter-btn {
+            border: 1px solid #ddd;
+            background: #fff;
+            padding: 8px 18px;
+            margin: 4px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+        .filter-btn.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-color: transparent; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f3f4f6; font-weight: 600; }
+        tr.food-red td.light { color: #c0392b; font-weight: 600; white-space: nowrap; }
+        tr.food-yellow td.light { color: #b7791f; font-weight: 600; white-space: nowrap; }
+        tr.food-green td.light { color: #1e8449; font-weight: 600; white-space: nowrap; }
+        .badge { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+        .badge.red { background: #e74c3c; }
+        .badge.yellow { background: #f39c12; }
+        .badge.green { background: #27ae60; }
+        .principles { background: #f8f9fa; border-left: 4px solid #667eea; padding: 15px 20px; border-radius: 0 10px 10px 0; }
+        .footnote { font-size: 0.9em; color: #6c757d; }
+        .disclaimer {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-top: 30px;
+            font-size: 0.92em;
+        }
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-radius: 14px;
+            padding: 22px;
+            margin-top: 30px;
+        }
+        .cta a { color: #fff; font-weight: 700; }
+        details.faq { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 18px; margin: 10px 0; }
+        details.faq summary { font-weight: 600; cursor: pointer; }
+        .back-link { text-align: center; margin-top: 25px; }
+        .back-link a { color: #667eea; }
+        @media (max-width: 640px) {
+            .container { padding: 22px; }
+            h1 { font-size: 1.6em; }
+            td, th { padding: 6px 8px; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "高血压饮食红绿灯是什么？食物是怎么分类的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "高血压饮食红绿灯是把常见食物按对血压的影响分为三档：红灯（不推荐，高盐、高油、高糖或高胆固醇）、黄灯（严格控制，如精米精面等需控制量）、绿灯（可适量，如富钾蔬菜、全谷物、优质蛋白）。本清单共 119 种食物，覆盖主食类（26 种）、蔬果类（30 种）、大豆坚果类（7 种）、动物性食品（20 种）、饮料酒（13 种）、调料（23 种）六大类，划分依据为钠（盐）、脂肪、胆固醇与糖含量，整理自《高血压饮食红绿灯》（腾讯医典）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "高血压患者每天最多吃多少盐？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "每日食盐摄入量不超过 5 克（约一啤酒瓶盖）。同时注意隐形盐：鸡精、味精、蚝油、酱油、火锅蘸料、咸菜、加工肉制品都是钠的主要来源。食用油每日控制在 20~30 克，优先选择植物油。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "高血压的红灯食物有哪些？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "红灯食物共 37 种，主要包括：主食类中的咸面包、方便面、油条、油饼、炒饭炒面、中式糕点；动物性食品中的腊鱼腊肉、腌鱼腌肉、熏鱼熏肉、火腿、肉罐头、虾皮、动物内脏、咸蛋皮蛋、肥肉、炸鸡、奶油；饮料酒中的酒、含糖饮料、碳酸饮料、浓茶、浓咖啡、奶茶、运动饮料；调料中的腐乳、豆瓣酱、味精、鸡精、食盐、辣椒酱、火锅底料、鱼露虾酱、浓汤宝；蔬果类中的咸菜榨菜、蜜饯罐头；大豆坚果类中的咸味坚果、臭豆腐。这些食物高盐、高油或高糖，建议尽量不吃。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "高血压可以放心吃的绿灯食物有哪些？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "绿灯食物共 58 种，可适量食用。重点包括：富钾蔬菜如菠菜、芹菜、苋菜、深色叶菜（深色蔬菜应占每天蔬菜一半）；粗杂粮如玉米、燕麦、红豆、绿豆、杂粮米、全麦面包；薯类如红薯、芋头、土豆山药；优质蛋白如瘦肉、去皮鸡鸭、鱼虾、低脂牛奶、酸奶、鸡蛋（每日一个，无需丢弃蛋黄）；豆制品如豆腐；原味坚果如花生、核桃杏仁（每日一小把）；水果如苹果、香蕉、柑橘类、猕猴桃；调料中的柠檬、醋、葱、姜、蒜、香辛料可替代部分食盐提味。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "低钠盐适合所有高血压患者吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不适合所有人。低钠盐以钾盐替代部分钠盐，慢性肾脏病患者排钾能力受限，食用低钠盐有高钾血症风险，请务必遵医嘱。本清单中低钠盐列为黄灯食物，并明确标注该禁忌。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "高血压患者能喝什么饮料？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "绿灯：白开水、无糖蔬果汁、无糖或少糖豆浆、大麦茶。黄灯：淡咖啡、淡茶。红灯：酒、含糖饮料、碳酸饮料、浓茶、浓咖啡、奶茶（高糖高脂）、运动饮料（含糖且含钠）。酒精会直接升血压，建议尽量不喝。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "全谷物是什么意思？和白米白面有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "全谷物指未经精细加工、保留了谷皮、糊粉层和胚芽的完整谷粒，如燕麦、糙米、玉米等。白米饭、白面条、白馒头属于精米精面，膳食纤维流失较多，在本清单中列为黄灯（严格控制），建议用全谷物和杂豆替代部分精米精面。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "元气血压日记的饮食红绿灯功能是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "元气血压日记是一款 iOS 血压记录 App（只做血压记录，不用摄像头测量血压）。其饮食红绿灯功能内置本页 119 种食物的红黄绿灯分类库，支持三餐与加餐记录、今日红绿灯结论卡、红灯高频食物统计，并可在周/月/季 PDF 报告中生成饮食红绿灯页。数据存储在用户设备与自己的 iCloud 中，不用于血压测量，不替代专业医疗建议。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "高血压饮食红绿灯食物清单（119 种）",
+      "description": "119 种常见食物按红灯（不推荐）、黄灯（严格控制）、绿灯（可适量）分类，覆盖主食、蔬果、大豆坚果、动物性食品、饮料酒、调料六大类。",
+      "numberOfItems": 119,
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"咸面包（主食类·红灯·高油盐主食）"},
+        {"@type":"ListItem","position":2,"name":"方便面（主食类·红灯·高油盐主食）"},
+        {"@type":"ListItem","position":3,"name":"油条（主食类·红灯·高油盐主食）"},
+        {"@type":"ListItem","position":4,"name":"油饼（主食类·红灯·高油盐主食）"},
+        {"@type":"ListItem","position":5,"name":"炒饭炒面（主食类·红灯·含葱油饼等，高油盐）"},
+        {"@type":"ListItem","position":6,"name":"中式糕点（主食类·红灯·含月饼、桃酥等，高糖高油）"},
+        {"@type":"ListItem","position":7,"name":"白馒头（主食类·黄灯·精米精面）"},
+        {"@type":"ListItem","position":8,"name":"白米饭（主食类·黄灯·精米精面）"},
+        {"@type":"ListItem","position":9,"name":"白面条（主食类·黄灯·精米精面）"},
+        {"@type":"ListItem","position":10,"name":"水饺包子（主食类·黄灯·含馄饨；蘸料与汤底是钠的主要来源）"},
+        {"@type":"ListItem","position":11,"name":"花卷（主食类·黄灯·精米精面）"},
+        {"@type":"ListItem","position":12,"name":"白粥（主食类·黄灯·精米精面）"},
+        {"@type":"ListItem","position":13,"name":"米粉（主食类·黄灯·精米精面，汤底含盐）"},
+        {"@type":"ListItem","position":14,"name":"烙饼（主食类·黄灯·精米精面）"},
+        {"@type":"ListItem","position":15,"name":"汤圆（主食类·黄灯·馅料高糖高油）"},
+        {"@type":"ListItem","position":16,"name":"粽子（主食类·黄灯·糯米；咸肉粽含盐较高）"},
+        {"@type":"ListItem","position":17,"name":"玉米（主食类·绿灯·粗杂粮）"},
+        {"@type":"ListItem","position":18,"name":"燕麦（主食类·绿灯·粗杂粮）"},
+        {"@type":"ListItem","position":19,"name":"红豆（主食类·绿灯·粗杂粮）"},
+        {"@type":"ListItem","position":20,"name":"绿豆（主食类·绿灯·粗杂粮）"},
+        {"@type":"ListItem","position":21,"name":"芋头（主食类·绿灯·薯类）"},
+        {"@type":"ListItem","position":22,"name":"红薯（主食类·绿灯·薯类）"},
+        {"@type":"ListItem","position":23,"name":"杂粮米（主食类·绿灯·全谷物，含糙米、小米、黑米、荞麦）"},
+        {"@type":"ListItem","position":24,"name":"全麦面包（主食类·绿灯·全谷物）"},
+        {"@type":"ListItem","position":25,"name":"杂粮粥（主食类·绿灯·粗杂粮）"},
+        {"@type":"ListItem","position":26,"name":"土豆山药（主食类·绿灯·薯类，当主食吃时相应减少米面）"},
+        {"@type":"ListItem","position":27,"name":"咸菜榨菜（蔬果类·红灯·含泡菜、酱菜；高盐，中式饮食主要钠来源）"},
+        {"@type":"ListItem","position":28,"name":"蜜饯罐头（蔬果类·红灯·高糖）"},
+        {"@type":"ListItem","position":29,"name":"果干（蔬果类·黄灯·糖分浓缩，整果优于果干）"},
+        {"@type":"ListItem","position":30,"name":"深色叶菜（蔬果类·绿灯·深色蔬菜应占每天蔬菜一半，如油菜、茼蒿、芥蓝、紫甘蓝）"},
+        {"@type":"ListItem","position":31,"name":"菠菜（蔬果类·绿灯·富钾蔬菜）"},
+        {"@type":"ListItem","position":32,"name":"绿叶菜（蔬果类·绿灯·空心菜、大白菜、生菜、油麦菜等，富钾蔬菜）"},
+        {"@type":"ListItem","position":33,"name":"苋菜（蔬果类·绿灯·富钾蔬菜）"},
+        {"@type":"ListItem","position":34,"name":"芹菜（蔬果类·绿灯·富钾、富膳食纤维）"},
+        {"@type":"ListItem","position":35,"name":"西红柿（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":36,"name":"萝卜（蔬果类·绿灯·白萝卜、胡萝卜）"},
+        {"@type":"ListItem","position":37,"name":"西兰花（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":38,"name":"茄子（蔬果类·绿灯·少油烹调）"},
+        {"@type":"ListItem","position":39,"name":"豆角（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":40,"name":"瓜类蔬菜（蔬果类·绿灯·黄瓜、冬瓜、苦瓜）"},
+        {"@type":"ListItem","position":41,"name":"南瓜（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":42,"name":"菌菇类（蔬果类·绿灯·蘑菇、木耳、香菇）"},
+        {"@type":"ListItem","position":43,"name":"海带（蔬果类·绿灯·富钾）"},
+        {"@type":"ListItem","position":44,"name":"洋葱（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":45,"name":"莲藕（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":46,"name":"青椒（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":47,"name":"苹果（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":48,"name":"香蕉（蔬果类·绿灯·富钾）"},
+        {"@type":"ListItem","position":49,"name":"柑橘类（蔬果类·绿灯·橙子、橘子、柚子）"},
+        {"@type":"ListItem","position":50,"name":"猕猴桃（蔬果类·绿灯·富钾）"},
+        {"@type":"ListItem","position":51,"name":"西瓜（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":52,"name":"葡萄（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":53,"name":"梨（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":54,"name":"桃（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":55,"name":"草莓（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":56,"name":"火龙果（蔬果类·绿灯）"},
+        {"@type":"ListItem","position":57,"name":"咸味坚果（大豆坚果类·红灯·含瓜子，高盐）"},
+        {"@type":"ListItem","position":58,"name":"臭豆腐（大豆坚果类·红灯·油炸且高盐）"},
+        {"@type":"ListItem","position":59,"name":"豆干油豆腐（大豆坚果类·黄灯·卤味与油炸豆制品，含盐或含油较高）"},
+        {"@type":"ListItem","position":60,"name":"豆腐（大豆坚果类·绿灯·优质植物蛋白）"},
+        {"@type":"ListItem","position":61,"name":"腐竹（大豆坚果类·绿灯·泡发后少油烹调）"},
+        {"@type":"ListItem","position":62,"name":"花生（大豆坚果类·绿灯·原味不加盐，每日一小把）"},
+        {"@type":"ListItem","position":63,"name":"核桃杏仁（大豆坚果类·绿灯·原味不加盐，每日一小把）"},
+        {"@type":"ListItem","position":64,"name":"腊鱼腊肉（动物性食品·红灯·高盐高脂）"},
+        {"@type":"ListItem","position":65,"name":"腌鱼腌肉（动物性食品·红灯·高盐高脂）"},
+        {"@type":"ListItem","position":66,"name":"熏鱼熏肉（动物性食品·红灯·高盐高脂）"},
+        {"@type":"ListItem","position":67,"name":"火腿（动物性食品·红灯·高盐高脂）"},
+        {"@type":"ListItem","position":68,"name":"肉罐头（动物性食品·红灯·高盐高脂）"},
+        {"@type":"ListItem","position":69,"name":"虾皮（动物性食品·红灯·高盐）"},
+        {"@type":"ListItem","position":70,"name":"动物内脏（动物性食品·红灯·高胆固醇）"},
+        {"@type":"ListItem","position":71,"name":"咸蛋皮蛋（动物性食品·红灯·高盐高钠）"},
+        {"@type":"ListItem","position":72,"name":"肥肉（动物性食品·红灯·含五花肉，高脂）"},
+        {"@type":"ListItem","position":73,"name":"炸鸡（动物性食品·红灯·高油盐）"},
+        {"@type":"ListItem","position":74,"name":"奶油（动物性食品·红灯·高脂）"},
+        {"@type":"ListItem","position":75,"name":"全脂牛奶（动物性食品·黄灯·优先选低脂或脱脂）"},
+        {"@type":"ListItem","position":76,"name":"排骨（动物性食品·黄灯·含脂较多）"},
+        {"@type":"ListItem","position":77,"name":"奶酪（动物性食品·黄灯·含盐较高）"},
+        {"@type":"ListItem","position":78,"name":"瘦肉（动物性食品·绿灯）"},
+        {"@type":"ListItem","position":79,"name":"去皮鸡鸭（动物性食品·绿灯）"},
+        {"@type":"ListItem","position":80,"name":"鹅肉鱼虾（动物性食品·绿灯）"},
+        {"@type":"ListItem","position":81,"name":"低脂牛奶（动物性食品·绿灯·脱脂奶同样推荐）"},
+        {"@type":"ListItem","position":82,"name":"酸奶（动物性食品·绿灯）"},
+        {"@type":"ListItem","position":83,"name":"鸡蛋（动物性食品·绿灯·每日一个，无需丢弃蛋黄）"},
+        {"@type":"ListItem","position":84,"name":"酒（饮料酒·红灯）"},
+        {"@type":"ListItem","position":85,"name":"含糖饮料（饮料酒·红灯）"},
+        {"@type":"ListItem","position":86,"name":"碳酸饮料（饮料酒·红灯）"},
+        {"@type":"ListItem","position":87,"name":"浓茶（饮料酒·红灯）"},
+        {"@type":"ListItem","position":88,"name":"浓咖啡（饮料酒·红灯）"},
+        {"@type":"ListItem","position":89,"name":"奶茶（饮料酒·红灯·高糖高脂）"},
+        {"@type":"ListItem","position":90,"name":"运动饮料（饮料酒·红灯·含功能饮料，含糖且含钠）"},
+        {"@type":"ListItem","position":91,"name":"淡咖啡（饮料酒·黄灯）"},
+        {"@type":"ListItem","position":92,"name":"淡茶（饮料酒·黄灯）"},
+        {"@type":"ListItem","position":93,"name":"白开水（饮料酒·绿灯）"},
+        {"@type":"ListItem","position":94,"name":"无糖蔬果汁（饮料酒·绿灯·低糖同样可选）"},
+        {"@type":"ListItem","position":95,"name":"豆浆（饮料酒·绿灯·选无糖或少糖）"},
+        {"@type":"ListItem","position":96,"name":"大麦茶（饮料酒·绿灯）"},
+        {"@type":"ListItem","position":97,"name":"腐乳（调料·红灯·高盐）"},
+        {"@type":"ListItem","position":98,"name":"豆瓣酱（调料·红灯·高盐）"},
+        {"@type":"ListItem","position":99,"name":"味精（调料·红灯·高钠）"},
+        {"@type":"ListItem","position":100,"name":"鸡精（调料·红灯·高钠）"},
+        {"@type":"ListItem","position":101,"name":"食盐（调料·红灯·每日不超过 5 克）"},
+        {"@type":"ListItem","position":102,"name":"辣椒酱（调料·红灯·含甜面酱，高盐高糖）"},
+        {"@type":"ListItem","position":103,"name":"火锅底料（调料·红灯·高盐高脂）"},
+        {"@type":"ListItem","position":104,"name":"鱼露虾酱（调料·红灯·高盐）"},
+        {"@type":"ListItem","position":105,"name":"浓汤宝（调料·红灯·高钠）"},
+        {"@type":"ListItem","position":106,"name":"蚝油（调料·黄灯）"},
+        {"@type":"ListItem","position":107,"name":"酱油（调料·黄灯·优先选低盐酱油）"},
+        {"@type":"ListItem","position":108,"name":"低钠盐（调料·黄灯·慢性肾脏病患者请遵医嘱）"},
+        {"@type":"ListItem","position":109,"name":"番茄酱（调料·黄灯·含盐含糖）"},
+        {"@type":"ListItem","position":110,"name":"芝麻酱（调料·黄灯·高脂但富钙，控制用量）"},
+        {"@type":"ListItem","position":111,"name":"食用油（调料·黄灯·每日 20~30 克）"},
+        {"@type":"ListItem","position":112,"name":"白糖（调料·黄灯·控制添加糖）"},
+        {"@type":"ListItem","position":113,"name":"柠檬（调料·绿灯）"},
+        {"@type":"ListItem","position":114,"name":"醋（调料·绿灯）"},
+        {"@type":"ListItem","position":115,"name":"生姜（调料·绿灯）"},
+        {"@type":"ListItem","position":116,"name":"葱（调料·绿灯）"},
+        {"@type":"ListItem","position":117,"name":"蒜（调料·绿灯）"},
+        {"@type":"ListItem","position":118,"name":"香辛料（调料·绿灯·花椒、八角、桂皮等，替代部分食盐提味）"},
+        {"@type":"ListItem","position":119,"name":"香菜（调料·绿灯）"}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>高血压饮食红绿灯清单<br>119 种食物完整分类表</h1>
+
+        <p>本清单把 119 种常见食物按对血压的影响分为三档：<strong>红灯（不推荐）</strong>、<strong>黄灯（严格控制）</strong>、<strong>绿灯（可适量）</strong>，覆盖主食、蔬果、大豆坚果、动物性食品、饮料酒、调料六大类。划分依据为<strong>钠（盐）、脂肪、胆固醇与糖含量</strong>，内容整理自腾讯医典《高血压饮食红绿灯》及《高血压人群饮食总原则》。</p>
+
+        <div class="stats">
+            <span class="stat red">🔴 红灯 37 种</span>
+            <span class="stat yellow">🟡 黄灯 24 种</span>
+            <span class="stat green">🟢 绿灯 58 种</span>
+        </div>
+
+        <h2>饮食总原则（先看这三条）</h2>
+        <div class="principles">
+            <p>1. <strong>限盐</strong>：每日食盐摄入量不超过 <strong>5 克</strong></p>
+            <p>2. <strong>食用油</strong>：每日 <strong>20~30 克</strong>，优先选择植物油</p>
+            <p>3. <strong>多摄入膳食纤维和钾</strong></p>
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterLight('all', this)">全部</button>
+            <button class="filter-btn" onclick="filterLight('red', this)">只看红灯</button>
+            <button class="filter-btn" onclick="filterLight('yellow', this)">只看黄灯</button>
+            <button class="filter-btn" onclick="filterLight('green', this)">只看绿灯</button>
+        </div>
+
+        <h2>一、主食类（26 种）</h2>
+        <table>
+            <thead><tr><th style="width:22%">食物</th><th style="width:14%">灯色</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr class="food-red"><td>🍞 咸面包</td><td class="light"><span class="badge red"></span>红灯</td><td>高油盐主食</td></tr>
+                <tr class="food-red"><td>🍜 方便面</td><td class="light"><span class="badge red"></span>红灯</td><td>高油盐主食</td></tr>
+                <tr class="food-red"><td>🥖 油条</td><td class="light"><span class="badge red"></span>红灯</td><td>高油盐主食</td></tr>
+                <tr class="food-red"><td>🫓 油饼</td><td class="light"><span class="badge red"></span>红灯</td><td>高油盐主食</td></tr>
+                <tr class="food-red"><td>🍛 炒饭炒面</td><td class="light"><span class="badge red"></span>红灯</td><td>含葱油饼等，高油盐</td></tr>
+                <tr class="food-red"><td>🥮 中式糕点</td><td class="light"><span class="badge red"></span>红灯</td><td>含月饼、桃酥等，高糖高油</td></tr>
+                <tr class="food-yellow"><td>🥯 白馒头</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>精米精面</td></tr>
+                <tr class="food-yellow"><td>🍚 白米饭</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>精米精面</td></tr>
+                <tr class="food-yellow"><td>🍝 白面条</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>精米精面</td></tr>
+                <tr class="food-yellow"><td>🥟 水饺包子</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>含馄饨；蘸料与汤底是钠的主要来源</td></tr>
+                <tr class="food-yellow"><td>🥨 花卷</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>精米精面</td></tr>
+                <tr class="food-yellow"><td>🥣 白粥</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>精米精面</td></tr>
+                <tr class="food-yellow"><td>🥡 米粉</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>精米精面，汤底含盐</td></tr>
+                <tr class="food-yellow"><td>🥞 烙饼</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>精米精面</td></tr>
+                <tr class="food-yellow"><td>🍡 汤圆</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>馅料高糖高油</td></tr>
+                <tr class="food-yellow"><td>🍙 粽子</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>糯米；咸肉粽含盐较高</td></tr>
+                <tr class="food-green"><td>🌽 玉米</td><td class="light"><span class="badge green"></span>绿灯</td><td>粗杂粮</td></tr>
+                <tr class="food-green"><td>🌾 燕麦</td><td class="light"><span class="badge green"></span>绿灯</td><td>粗杂粮</td></tr>
+                <tr class="food-green"><td>🫘 红豆</td><td class="light"><span class="badge green"></span>绿灯</td><td>粗杂粮</td></tr>
+                <tr class="food-green"><td>🫛 绿豆</td><td class="light"><span class="badge green"></span>绿灯</td><td>粗杂粮</td></tr>
+                <tr class="food-green"><td>🫜 芋头</td><td class="light"><span class="badge green"></span>绿灯</td><td>薯类</td></tr>
+                <tr class="food-green"><td>🍠 红薯</td><td class="light"><span class="badge green"></span>绿灯</td><td>薯类</td></tr>
+                <tr class="food-green"><td>🍘 杂粮米</td><td class="light"><span class="badge green"></span>绿灯</td><td>全谷物，含糙米、小米、黑米、荞麦</td></tr>
+                <tr class="food-green"><td>🥐 全麦面包</td><td class="light"><span class="badge green"></span>绿灯</td><td>全谷物</td></tr>
+                <tr class="food-green"><td>🍲 杂粮粥</td><td class="light"><span class="badge green"></span>绿灯</td><td>粗杂粮</td></tr>
+                <tr class="food-green"><td>🥔 土豆山药</td><td class="light"><span class="badge green"></span>绿灯</td><td>薯类，当主食吃时相应减少米面</td></tr>
+            </tbody>
+        </table>
+
+        <h2>二、蔬果类（30 种）</h2>
+        <table>
+            <thead><tr><th style="width:22%">食物</th><th style="width:14%">灯色</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr class="food-red"><td>🫒 咸菜榨菜</td><td class="light"><span class="badge red"></span>红灯</td><td>含泡菜、酱菜；高盐，中式饮食主要钠来源</td></tr>
+                <tr class="food-red"><td>🍬 蜜饯罐头</td><td class="light"><span class="badge red"></span>红灯</td><td>高糖</td></tr>
+                <tr class="food-yellow"><td>🫐 果干</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>糖分浓缩，整果优于果干</td></tr>
+                <tr class="food-green"><td>🍀 深色叶菜</td><td class="light"><span class="badge green"></span>绿灯</td><td>深色蔬菜应占每天蔬菜一半，如油菜、茼蒿、芥蓝、紫甘蓝</td></tr>
+                <tr class="food-green"><td>🌱 菠菜</td><td class="light"><span class="badge green"></span>绿灯</td><td>富钾蔬菜</td></tr>
+                <tr class="food-green"><td>🥬 绿叶菜</td><td class="light"><span class="badge green"></span>绿灯</td><td>空心菜、大白菜、生菜、油麦菜等，富钾蔬菜</td></tr>
+                <tr class="food-green"><td>🥗 苋菜</td><td class="light"><span class="badge green"></span>绿灯</td><td>富钾蔬菜</td></tr>
+                <tr class="food-green"><td>🎍 芹菜</td><td class="light"><span class="badge green"></span>绿灯</td><td>富钾、富膳食纤维</td></tr>
+                <tr class="food-green"><td>🍅 西红柿</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🥕 萝卜</td><td class="light"><span class="badge green"></span>绿灯</td><td>白萝卜、胡萝卜</td></tr>
+                <tr class="food-green"><td>🥦 西兰花</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍆 茄子</td><td class="light"><span class="badge green"></span>绿灯</td><td>少油烹调</td></tr>
+                <tr class="food-green"><td>🍃 豆角</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🥒 瓜类蔬菜</td><td class="light"><span class="badge green"></span>绿灯</td><td>黄瓜、冬瓜、苦瓜</td></tr>
+                <tr class="food-green"><td>🎃 南瓜</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍄 菌菇类</td><td class="light"><span class="badge green"></span>绿灯</td><td>蘑菇、木耳、香菇</td></tr>
+                <tr class="food-green"><td>🌊 海带</td><td class="light"><span class="badge green"></span>绿灯</td><td>富钾</td></tr>
+                <tr class="food-green"><td>🧅 洋葱</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🪷 莲藕</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🫑 青椒</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍎 苹果</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍌 香蕉</td><td class="light"><span class="badge green"></span>绿灯</td><td>富钾</td></tr>
+                <tr class="food-green"><td>🍊 柑橘类</td><td class="light"><span class="badge green"></span>绿灯</td><td>橙子、橘子、柚子</td></tr>
+                <tr class="food-green"><td>🥝 猕猴桃</td><td class="light"><span class="badge green"></span>绿灯</td><td>富钾</td></tr>
+                <tr class="food-green"><td>🍉 西瓜</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍇 葡萄</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍐 梨</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍑 桃</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍓 草莓</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍈 火龙果</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+            </tbody>
+        </table>
+
+        <h2>三、大豆坚果类（7 种）</h2>
+        <table>
+            <thead><tr><th style="width:22%">食物</th><th style="width:14%">灯色</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr class="food-red"><td>🌻 咸味坚果</td><td class="light"><span class="badge red"></span>红灯</td><td>含瓜子，高盐</td></tr>
+                <tr class="food-red"><td>🧆 臭豆腐</td><td class="light"><span class="badge red"></span>红灯</td><td>油炸且高盐</td></tr>
+                <tr class="food-yellow"><td>🍢 豆干油豆腐</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>卤味与油炸豆制品，含盐或含油较高</td></tr>
+                <tr class="food-green"><td>🍮 豆腐</td><td class="light"><span class="badge green"></span>绿灯</td><td>优质植物蛋白</td></tr>
+                <tr class="food-green"><td>🥠 腐竹</td><td class="light"><span class="badge green"></span>绿灯</td><td>泡发后少油烹调</td></tr>
+                <tr class="food-green"><td>🥜 花生</td><td class="light"><span class="badge green"></span>绿灯</td><td>原味不加盐，每日一小把</td></tr>
+                <tr class="food-green"><td>🌰 核桃杏仁</td><td class="light"><span class="badge green"></span>绿灯</td><td>原味不加盐，每日一小把</td></tr>
+            </tbody>
+        </table>
+
+        <h2>四、动物性食品（20 种）</h2>
+        <table>
+            <thead><tr><th style="width:22%">食物</th><th style="width:14%">灯色</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr class="food-red"><td>🥓 腊鱼腊肉</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐高脂</td></tr>
+                <tr class="food-red"><td>🐟 腌鱼腌肉</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐高脂</td></tr>
+                <tr class="food-red"><td>🍖 熏鱼熏肉</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐高脂</td></tr>
+                <tr class="food-red"><td>🌭 火腿</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐高脂</td></tr>
+                <tr class="food-red"><td>🥫 肉罐头</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐高脂</td></tr>
+                <tr class="food-red"><td>🦐 虾皮</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐</td></tr>
+                <tr class="food-red"><td>🫀 动物内脏</td><td class="light"><span class="badge red"></span>红灯</td><td>高胆固醇</td></tr>
+                <tr class="food-red"><td>🍳 咸蛋皮蛋</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐高钠</td></tr>
+                <tr class="food-red"><td>🐖 肥肉</td><td class="light"><span class="badge red"></span>红灯</td><td>含五花肉，高脂</td></tr>
+                <tr class="food-red"><td>🍤 炸鸡</td><td class="light"><span class="badge red"></span>红灯</td><td>高油盐</td></tr>
+                <tr class="food-red"><td>🍰 奶油</td><td class="light"><span class="badge red"></span>红灯</td><td>高脂</td></tr>
+                <tr class="food-yellow"><td>🐄 全脂牛奶</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>优先选低脂或脱脂</td></tr>
+                <tr class="food-yellow"><td>🦴 排骨</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>含脂较多</td></tr>
+                <tr class="food-yellow"><td>🧀 奶酪</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>含盐较高</td></tr>
+                <tr class="food-green"><td>🥩 瘦肉</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍗 去皮鸡鸭</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🦆 鹅肉鱼虾</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🥛 低脂牛奶</td><td class="light"><span class="badge green"></span>绿灯</td><td>脱脂奶同样推荐</td></tr>
+                <tr class="food-green"><td>🍦 酸奶</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🥚 鸡蛋</td><td class="light"><span class="badge green"></span>绿灯</td><td>每日一个，无需丢弃蛋黄</td></tr>
+            </tbody>
+        </table>
+
+        <h2>五、饮料、酒（13 种）</h2>
+        <table>
+            <thead><tr><th style="width:22%">食物</th><th style="width:14%">灯色</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr class="food-red"><td>🍺 酒</td><td class="light"><span class="badge red"></span>红灯</td><td>—</td></tr>
+                <tr class="food-red"><td>🍹 含糖饮料</td><td class="light"><span class="badge red"></span>红灯</td><td>—</td></tr>
+                <tr class="food-red"><td>🥤 碳酸饮料</td><td class="light"><span class="badge red"></span>红灯</td><td>—</td></tr>
+                <tr class="food-red"><td>🫖 浓茶</td><td class="light"><span class="badge red"></span>红灯</td><td>—</td></tr>
+                <tr class="food-red"><td>☕ 浓咖啡</td><td class="light"><span class="badge red"></span>红灯</td><td>—</td></tr>
+                <tr class="food-red"><td>🧋 奶茶</td><td class="light"><span class="badge red"></span>红灯</td><td>高糖高脂</td></tr>
+                <tr class="food-red"><td>🧊 运动饮料</td><td class="light"><span class="badge red"></span>红灯</td><td>含功能饮料，含糖且含钠</td></tr>
+                <tr class="food-yellow"><td>🥃 淡咖啡</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>—</td></tr>
+                <tr class="food-yellow"><td>🍵 淡茶</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>—</td></tr>
+                <tr class="food-green"><td>💧 白开水</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🧃 无糖蔬果汁</td><td class="light"><span class="badge green"></span>绿灯</td><td>低糖同样可选</td></tr>
+                <tr class="food-green"><td>🍼 豆浆</td><td class="light"><span class="badge green"></span>绿灯</td><td>选无糖或少糖</td></tr>
+                <tr class="food-green"><td>🧉 大麦茶</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+            </tbody>
+        </table>
+
+        <h2>六、调料（23 种）</h2>
+        <table>
+            <thead><tr><th style="width:22%">食物</th><th style="width:14%">灯色</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr class="food-red"><td>🧈 腐乳</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐</td></tr>
+                <tr class="food-red"><td>🌶️ 豆瓣酱</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐</td></tr>
+                <tr class="food-red"><td>🧂 味精</td><td class="light"><span class="badge red"></span>红灯</td><td>高钠</td></tr>
+                <tr class="food-red"><td>🐔 鸡精</td><td class="light"><span class="badge red"></span>红灯</td><td>高钠</td></tr>
+                <tr class="food-red"><td>🧂 食盐</td><td class="light"><span class="badge red"></span>红灯</td><td>每日不超过 5 克</td></tr>
+                <tr class="food-red"><td>🥘 辣椒酱</td><td class="light"><span class="badge red"></span>红灯</td><td>含甜面酱，高盐高糖</td></tr>
+                <tr class="food-red"><td>🫕 火锅底料</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐高脂</td></tr>
+                <tr class="food-red"><td>🦑 鱼露虾酱</td><td class="light"><span class="badge red"></span>红灯</td><td>高盐</td></tr>
+                <tr class="food-red"><td>🍥 浓汤宝</td><td class="light"><span class="badge red"></span>红灯</td><td>高钠</td></tr>
+                <tr class="food-yellow"><td>🦪 蚝油</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>—</td></tr>
+                <tr class="food-yellow"><td>🫙 酱油</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>优先选低盐酱油</td></tr>
+                <tr class="food-yellow"><td>🧊 低钠盐</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>慢性肾脏病患者请遵医嘱</td></tr>
+                <tr class="food-yellow"><td>🍯 番茄酱</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>含盐含糖</td></tr>
+                <tr class="food-yellow"><td>🥄 芝麻酱</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>高脂但富钙，控制用量</td></tr>
+                <tr class="food-yellow"><td>🫗 食用油</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>每日 20~30 克</td></tr>
+                <tr class="food-yellow"><td>🍭 白糖</td><td class="light"><span class="badge yellow"></span>黄灯</td><td>控制添加糖</td></tr>
+                <tr class="food-green"><td>🍋 柠檬</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🍶 醋</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🫚 生姜</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🌿 葱</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🧄 蒜</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+                <tr class="food-green"><td>🌸 香辛料</td><td class="light"><span class="badge green"></span>绿灯</td><td>花椒、八角、桂皮等，替代部分食盐提味</td></tr>
+                <tr class="food-green"><td>☘️ 香菜</td><td class="light"><span class="badge green"></span>绿灯</td><td>—</td></tr>
+            </tbody>
+        </table>
+
+        <h2>常见问题</h2>
+        <details class="faq" open>
+            <summary>高血压饮食红绿灯是什么？食物是怎么分类的？</summary>
+            <p>把常见食物按对血压的影响分为三档：红灯（不推荐，高盐、高油、高糖或高胆固醇）、黄灯（严格控制，如精米精面需控制量）、绿灯（可适量，如富钾蔬菜、全谷物、优质蛋白）。划分依据为钠（盐）、脂肪、胆固醇与糖含量，共 119 种，整理自腾讯医典《高血压饮食红绿灯》。</p>
+        </details>
+        <details class="faq">
+            <summary>高血压患者每天最多吃多少盐？</summary>
+            <p>每日食盐摄入量不超过 5 克（约一啤酒瓶盖）。同时注意隐形盐：鸡精、味精、蚝油、酱油、火锅蘸料、咸菜、加工肉制品都是钠的主要来源。食用油每日控制在 20~30 克，优先选择植物油。</p>
+        </details>
+        <details class="faq">
+            <summary>低钠盐适合所有高血压患者吗？</summary>
+            <p>不适合所有人。低钠盐以钾盐替代部分钠盐，慢性肾脏病患者排钾能力受限，食用低钠盐有高钾血症风险，请务必遵医嘱。本清单中低钠盐列为黄灯食物。</p>
+        </details>
+        <details class="faq">
+            <summary>全谷物是什么意思？和白米白面有什么区别？</summary>
+            <p>全谷物指未经精细加工、保留了谷皮、糊粉层和胚芽的完整谷粒，如燕麦、糙米、玉米等。白米饭、白面条、白馒头属于精米精面，膳食纤维流失较多，在本清单中列为黄灯，建议用全谷物和杂豆替代部分精米精面。</p>
+        </details>
+
+        <p class="footnote">注：低钠盐（钾盐）不适合慢性肾脏病患者，请遵医嘱。</p>
+        <p class="footnote">注：全谷物指未经精细加工、保留了谷皮、糊粉层和胚芽的完整谷粒（如燕麦、糙米、玉米等）。</p>
+
+        <div class="disclaimer">
+            <strong>免责声明</strong>：本清单仅供健康饮食参考，不构成医疗建议，不能替代专业医师的诊疗意见。具体饮食方案请遵医嘱。<br>
+            <strong>数据来源</strong>：腾讯医典《高血压饮食红绿灯》及《高血压人群饮食总原则》，整理自 iOS 应用「元气血压日记」内置食物库。
+        </div>
+
+        <div class="cta">
+            <p style="margin:0 0 8px;font-size:1.05em;font-weight:600">这份清单完整内置在「元气血压日记」（iOS）中</p>
+            <p style="margin:0;font-size:0.95em">三餐记录、今日红绿灯结论卡、红灯高频食物统计、PDF 报告含饮食页。本应用只做血压记录，不用摄像头测量血压，数据存在你自己的 iCloud 里。</p>
+            <p style="margin:12px 0 0"><a href="https://apps.apple.com/cn/app/id6748569774">App Store 下载 →</a></p>
+        </div>
+
+        <div class="back-link"><a href="https://mqbit.github.io/VitalBPDiary-Support/support.html">← 返回技术支持</a></div>
+    </div>
+
+    <script>
+        function filterLight(light, btn) {
+            document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            document.querySelectorAll('tbody tr').forEach(function (row) {
+                if (light === 'all') { row.style.display = ''; return; }
+                row.style.display = row.classList.contains('food-' + light) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
