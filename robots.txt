@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mqbit.github.io/VitalBPDiary-Support/sitemap.xml

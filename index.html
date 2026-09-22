@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元气血压日记（iOS）— 血压记录 App：拍照识别 · Apple Watch · 就医 PDF 报告</title>
+    <meta name="description" content="元气血压日记是一款 iOS 血压记录应用，支持拍照识别血压计读数、Apple Watch 抬腕录入、Apple 健康双向同步、iCloud 多设备同步、家庭多人档案、饮食红绿灯记录，并可导出周/月/季 PDF 报告供复诊使用。本应用只做血压记录，不用摄像头测量血压。">
+    <meta name="keywords" content="血压记录app, 血压日记, 血压管理, iPhone 血压记录, 血压计拍照识别, Apple Watch 记录血压, Apple 健康同步血压, 血压PDF报告, 高血压饮食红绿灯">
+    <link rel="canonical" href="https://mqbit.github.io/VitalBPDiary-Support/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="元气血压日记（iOS）— 血压记录 App">
+    <meta property="og:description" content="拍照识别血压计读数、Apple Watch 抬腕录入、Apple 健康双向同步、饮食红绿灯、就医 PDF 报告。只做记录，不测血压。">
+    <meta property="og:url" content="https://mqbit.github.io/VitalBPDiary-Support/">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.4em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        .tagline { text-align: center; color: #6c757d; margin: 0 0 25px; }
+        h2 {
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+            position: relative;
+            padding-left: 15px;
+        }
+        h2::before {
+            content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+            width: 4px; height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 2px;
+        }
+        .hero-note {
+            background: #eef2ff; border-left: 4px solid #667eea; border-radius: 0 10px 10px 0;
+            padding: 14px 20px; margin: 20px 0; font-size: 0.98em;
+        }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 20px 0; }
+        .feature { background: #f8f9fa; border-radius: 12px; padding: 16px 18px; }
+        .feature strong { display: block; margin-bottom: 6px; }
+        .feature span { font-size: 0.92em; color: #555; }
+        ul.nav { list-style: none; padding: 0; }
+        ul.nav li { margin: 8px 0; }
+        ul.nav a { color: #667eea; text-decoration: none; font-weight: 600; }
+        ul.nav a:hover { text-decoration: underline; }
+        details.faq { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 18px; margin: 10px 0; }
+        details.faq summary { font-weight: 600; cursor: pointer; }
+        .cta {
+            text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff; border-radius: 14px; padding: 22px; margin-top: 30px;
+        }
+        .cta a { color: #fff; font-weight: 700; font-size: 1.05em; }
+        .disclaimer { background: #fff8e1; border: 1px solid #ffe082; border-radius: 10px; padding: 15px 20px; margin-top: 25px; font-size: 0.92em; }
+        @media (max-width: 640px) { .container { padding: 22px; } h1 { font-size: 1.7em; } }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "元气血压日记",
+      "alternateName": "VitalBPDiary",
+      "url": "https://mqbit.github.io/VitalBPDiary-Support/",
+      "inLanguage": "zh-CN",
+      "description": "元气血压日记（iOS）是一款血压记录应用，支持拍照识别血压计读数、Apple Watch 录入、Apple 健康与 iCloud 同步、饮食红绿灯记录与 PDF 报告导出。"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "元气血压日记",
+      "alternateName": "VitalBPDiary",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "血压记录",
+      "operatingSystem": "iOS 17.6 或更高版本（含 Apple Watch）",
+      "url": "https://mqbit.github.io/VitalBPDiary-Support/",
+      "inLanguage": "zh-CN",
+      "description": "iOS 血压记录应用：拍照识别血压计读数、Apple Watch 抬腕录入、Apple 健康双向同步、iCloud 多设备同步、家庭多人档案、饮食红绿灯记录、周/月/季 PDF 报告导出。本应用只做血压记录，不具备血压测量功能。",
+      "featureList": [
+        "拍照识别血压计读数（识别后需用户确认）",
+        "Apple Watch 抬腕录入，支持离线暂存与重连补发",
+        "Apple 健康双向同步血压与心率",
+        "iCloud 多设备同步",
+        "家庭成员多人档案与独立报告",
+        "饮食红绿灯记录（119 种食物库）",
+        "周/月/季 PDF 报告导出",
+        "测量提醒与用药提醒"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY",
+        "description": "免费下载使用，部分高级功能需订阅（¥12/月、¥58/年，价格可能因地区而异）"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "高新区润林软件研发工作室",
+        "alternateName": "High-tech Zone Runlin Software R&D Studio"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "元气血压日记能测量血压吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。元气血压日记是一款血压记录应用，不具备也不声称具备血压测量功能。血压数值需要使用经认证的上臂式电子血压计测量后，通过手动输入、拍照识别或 Apple Watch 录入的方式记录到应用中。手机摄像头无法测量血压。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "元气血压日记和安卓端的「元气健康」是同一个应用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是同一款产品。元气血压日记是 iOS（iPhone 与 Apple Watch）应用，由高新区润林软件研发工作室开发，只做血压记录与数据管理。安卓端的「元气健康」由北京冲云破雾科技有限公司开发，与本产品无任何关联。请注意区分。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "血压数据会上传到开发者的服务器吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会上传到开发者的服务器。血压与饮食数据存储在用户设备本地，并通过用户自己的 iCloud 私有数据库在多台 Apple 设备间同步。Apple 健康同步需用户授权，由系统完成，数据保存在用户的健康数据库中。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "拍照识别血压计读数的准确度如何？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "识别结果受拍摄光线、屏幕反光、角度与机型影响，不能保证百分之百准确。因此应用在识别后会进入确认界面，由用户核对数值后再保存，避免错误数据入库。识别失败时会自动回退到本地识别与手动输入。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "元气血压日记支持哪些录入方式？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "三种：一是手动输入，用滑块记录收缩压、舒张压与脉搏；二是拍照识别，对准血压计屏幕拍照自动读取数值；三是 Apple Watch 抬腕录入，转动表冠填入数值后同步回 iPhone。此外还可记录测量位置、姿势，以及服药、运动、吸烟、饮酒、失眠、吃咸、压力大等场景标签。"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>元气血压日记</h1>
+        <p class="tagline">iOS 血压记录应用 · 拍照识别 · Apple Watch · 就医 PDF 报告</p>
+
+        <div class="hero-note">
+            <strong>先说清楚：</strong>元气血压日记<strong>只做血压记录，不测量血压</strong>。血压数值请用经认证的上臂式电子血压计测量后记录下来。手机摄像头无法测量血压。
+        </div>
+
+        <h2>核心功能</h2>
+        <div class="features">
+            <div class="feature"><strong>📷 拍照识别血压计</strong><span>对准血压计屏幕拍照，自动读取收缩压、舒张压、脉搏，识别后需你确认才保存</span></div>
+            <div class="feature"><strong>⌚ Apple Watch 录入</strong><span>抬腕转表冠三步完成记录，离线可暂存，联网后自动补发</span></div>
+            <div class="feature"><strong>🔄 Apple 健康双向同步</strong><span>血压与心率与「健康」App 双向同步，不做重复数据</span></div>
+            <div class="feature"><strong>☁️ iCloud 多设备同步</strong><span>数据存于你自己的 iCloud 私有库，换手机不丢记录</span></div>
+            <div class="feature"><strong>🚦 饮食红绿灯</strong><span>内置 119 种食物红黄绿灯分类，三餐与加餐记录，PDF 报告含饮食页</span></div>
+            <div class="feature"><strong>📄 就医 PDF 报告</strong><span>周/月/季一键导出，含趋势图、记录明细、血压分类统计</span></div>
+            <div class="feature"><strong>👨‍👩‍👧 家庭多人档案</strong><span>为父母各建一个档案，数据独立、报告隔离</span></div>
+            <div class="feature"><strong>⏰ 测量与用药提醒</strong><span>自定义测量提醒，多种降压药服用时间管理</span></div>
+        </div>
+
+        <h2>内容与服务</h2>
+        <ul class="nav">
+            <li><a href="diet-food-traffic-light.html">高血压饮食红绿灯清单：119 种食物完整分类表 →</a></li>
+            <li><a href="medical_references.html">医疗参考文献 →</a></li>
+            <li><a href="support.html">技术支持 →</a></li>
+            <li><a href="privacy_policy.html">隐私政策 →</a></li>
+            <li><a href="terms_of_service.html">用户协议与服务条款 →</a></li>
+        </ul>
+
+        <h2>常见问题</h2>
+        <details class="faq" open>
+            <summary>元气血压日记能测量血压吗？</summary>
+            <p>不能。这是一款血压记录应用，不具备也不声称具备血压测量功能。血压数值需要使用经认证的上臂式电子血压计测量后，通过手动输入、拍照识别或 Apple Watch 录入的方式记录到应用中。</p>
+        </details>
+        <details class="faq">
+            <summary>和安卓端的「元气健康」是同一个应用吗？</summary>
+            <p>不是同一款产品。元气血压日记是 iOS（iPhone 与 Apple Watch）应用，由高新区润林软件研发工作室开发，只做血压记录与数据管理。安卓端的「元气健康」由北京冲云破雾科技有限公司开发，与本产品无任何关联。</p>
+        </details>
+        <details class="faq">
+            <summary>血压数据会上传到开发者的服务器吗？</summary>
+            <p>不会。数据存储在用户设备本地，并通过用户自己的 iCloud 私有数据库在多台 Apple 设备间同步。</p>
+        </details>
+        <details class="faq">
+            <summary>拍照识别的准确度如何？</summary>
+            <p>识别结果受光线、屏幕反光、角度与机型影响，不能保证百分之百准确。识别后会进入确认界面，由你核对后再保存；识别失败会自动回退到本地识别与手动输入。</p>
+        </details>
+        <details class="faq">
+            <summary>支持哪些录入方式？</summary>
+            <p>手动滑块输入、拍照识别、Apple Watch 抬腕录入三种。还可记录测量位置、姿势，以及服药、运动、吸烟、饮酒、失眠、吃咸、压力大等场景标签。</p>
+        </details>
+
+        <div class="cta">
+            <p style="margin:0 0 10px;font-size:1.05em">免费下载，部分高级功能需订阅（¥12/月、¥58/年）</p>
+            <p style="margin:0"><a href="https://apps.apple.com/cn/app/id6748569774">在 App Store 下载 →</a></p>
+        </div>
+
+        <div class="disclaimer">
+            <strong>免责声明</strong>：本应用仅供血压与饮食数据记录和管理参考，不构成医疗建议，不能替代专业医师的诊疗、诊断或治疗方案。任何用药与治疗调整请遵医嘱。
+        </div>
+    </div>
+</body>
+</html>
